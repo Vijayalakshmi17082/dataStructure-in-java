@@ -1,17 +1,16 @@
 class Solution {
-    public int maximumDifference(int[] nums) {
-         
-         int k=-1;
-         for(int i=0;i<nums.length;i++){
-            for(int j=i+1;j<nums.length;j++){
-                if(nums[j]>nums[i]){
-                    int diff = nums[j]-nums[i];
-                    if(diff>k){
-                        k=diff;
+    public int maxDistance(int[] colors) {
+         int max=0;
+         for(int i=0;i<colors.length;i++){
+            for(int j=colors.length-1;j>i;j--){
+                 if(colors[i]!=colors[j]){
+                    if(j-i>max){
+                        max=j-i;
                     }
-                }
+                
+                 }
             }
          }
-        return k;
+        return max;
     }
 }
